@@ -1,0 +1,7 @@
+FROM dockerfile/java:oracle-java8
+
+VOLUME /tmp
+ADD exam1.jar /opt/exam1/
+EXPOSE 8080
+WORKDIR /opt/exam1/
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Xms512m", "-Xmx1g", "-jar", "exam1.jar"]

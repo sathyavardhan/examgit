@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="preparation" default="run">
+
+<target name="info">
+<echo> info block executed </echo>
+</target>
+
+<target name="compile" depends="info">
+<echo> compile block executed </echo>
+<javac srcdir="C:/Users/SATHYA VARDHAN/Desktop/exam/trunk/java" destdir="./java"/>
+</target>
+
+<target name="jar" depends="compile">
+<echo> jar block executed </echo>
+<mkdir dir="C:/Users/SATHYA VARDHAN/Desktop/exam/trunk/jar"/>
+<jar destfile="jar/exam.jar" basedir="C:/Users/SATHYA VARDHAN/Desktop/exam/trunk/java">
+<manifest>
+<attribute name="main-class" value="myexam"/>
+</manifest>
+</jar>
+</target>
+
+<target name="run" depends="jar">
+<echo> run blockexecuted </echo>
+<java jar="C:/Users/SATHYA VARDHAN/Desktop/exam/trunk/jar/exam.jar" fork="true"/>
+</target>
+</project>
